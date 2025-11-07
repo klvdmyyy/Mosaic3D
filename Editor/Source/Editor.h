@@ -1,7 +1,7 @@
 #pragma once
 
 #include "System/Logger.h"
-#include "GI/RenderingWindow.h"
+#include "WSI/Window.h"
 
 class Editor
 {
@@ -13,5 +13,5 @@ public:
 	int Run();
 
 private:
-	GI::RenderingWindow mWindow;
+	WSI::Window m_window;
 };

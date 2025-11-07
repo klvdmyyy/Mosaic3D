@@ -1,5 +1,7 @@
 #include "Editor.h"
 
+#include "WSI/Input.h"
+
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -20,9 +22,10 @@ public:
 	}
 };
 
-Editor::Editor() : mWindow({ 800, 600 }, "Mosaic3D")
+Editor::Editor() : m_window({ 800, 600 }, "Mosaic3D")
 {
 	System::Logger::AddSink("Editor", std::make_unique<ConsoleSink>());
+	System::Logger::AddSink("Input", std::make_unique<ConsoleSink>());
 }
 
 Editor::~Editor()
@@ -33,7 +36,10 @@ int Editor::Run()
 {
 	try
 	{
-		std::this_thread::sleep_for(std::chrono::seconds(2));
+		while (!m_window.ShouldClose())
+		{
+			WSI::Input::PollEvents();
+		}
 		return 0;
 	}
 	catch (const std::exception &e)

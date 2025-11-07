@@ -12,6 +12,8 @@ macro(add_engine_module NAME)
 endmacro()
 
 add_engine_module(System)
+target_link_libraries(MosaicSystem PRIVATE glfw)
 
-add_engine_module(GI)
-target_link_libraries(MosaicGI PRIVATE glfw)
+add_engine_module(WSI)
+target_link_libraries(MosaicWSI PUBLIC MosaicSystem)
+target_link_libraries(MosaicWSI PRIVATE glfw)
