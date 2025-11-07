@@ -21,6 +21,10 @@ public:
 int main()
 {
 	System::Logger::AddSink("Editor", std::make_unique<ConsoleSink>());
+
 	System::Logger::AddSink("WSI/Window", std::make_unique<ConsoleSink>());
+
+	System::Logger::AddSink("GI", std::make_unique<ConsoleSink>());
+	System::Logger::AddSink("GI/OpenGL", std::make_unique<ConsoleSink>());
 	return Editor().Run();
 }

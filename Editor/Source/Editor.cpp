@@ -8,10 +8,14 @@
 
 Editor::Editor() : m_window({ 800, 600 }, "Mosaic3D")
 {
+	m_pRenderingFactory = GI::IRenderingFactory::Create(GI::Backend::OpenGL);
+
+	m_pSpriteRenderer = m_pRenderingFactory->GetSpriteRenderer();
 }
 
 Editor::~Editor()
 {
+	delete m_pRenderingFactory;
 }
 
 int Editor::Run()

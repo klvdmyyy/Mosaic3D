@@ -1,7 +1,10 @@
 #pragma once
 
 #include "System/Logger.h"
+
 #include "WSI/Window.h"
+
+#include "GI/IRenderingFactory.h"
 
 class Editor
 {
@@ -14,4 +17,6 @@ public:
 
 private:
 	WSI::Window m_window;
+	GI::IRenderingFactory* m_pRenderingFactory;
+	GI::ISpriteRenderer* m_pSpriteRenderer;
 };

@@ -2,4 +2,5 @@ add_executable(MosaicEditor Source/Mosaic3D.cpp "Source/Editor.h" "Source/Editor
 
 target_link_libraries(MosaicEditor PRIVATE
 	MosaicSystem
-	MosaicWSI)
+	MosaicWSI
+	MosaicGI)
