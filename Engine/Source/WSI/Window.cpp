@@ -42,16 +42,28 @@ void KeyCallbackFunction(int key, int scancode, int action, int mods)
 	}
 
 	const char* pKeyName = glfwGetKeyName(key, scancode);
-	System::Logger::Log(System::LogLevel::Debug, "Input", "Key: {}; Action: {}; Mods: {}",
-		pKeyName ? pKeyName : "No", actionName, modName);
+	System::Logger::Log(System::LogLevel::Debug, "WSI/Input", "Key: {}; Action: {}; Mods: {}",
+		pKeyName ? pKeyName : "NN", actionName, modName);
 }
 
 namespace WSI
 {
 	Window::Window(Vector2u size, const std::string& title)
 	{
-		glfwInit();
+		System::Logger::Log(System::LogLevel::Info, "WSI/Window", "Initializing WSI...");
+		if (glfwInit() == GLFW_FALSE)
+		{
+			System::Logger::Log(System::LogLevel::Critical, "WSI/Window", "Failed to initialize GLFW.");
+		}
+
+		// TODO: glfwSetErrorCallback
+
+		System::Logger::Log(System::LogLevel::Info, "WSI/Window", "Creating window...");
 		m_pWindow = glfwCreateWindow(static_cast<int>(size.x), static_cast<int>(size.y), title.c_str(), nullptr, nullptr);
+		if (!m_pWindow)
+		{
+			System::Logger::Log(System::LogLevel::Critical, "WSI/Window", "Failed to create window '{}'", title);
+		}
 
 		glfwSetWindowUserPointer(m_pWindow, this);
 
@@ -62,6 +74,7 @@ namespace WSI
 
 	Window::~Window()
 	{
+		System::Logger::Log(System::LogLevel::Info, "WSI/Window", "Terminating WSI and all windows");
 		glfwDestroyWindow(m_pWindow);
 		glfwTerminate();
 	}
