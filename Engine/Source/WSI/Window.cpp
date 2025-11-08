@@ -8,13 +8,13 @@ void KeyCallbackFunction(int key, int scancode, int action, int mods)
 	std::string actionName{};
 	switch (action)
 	{
-	case 0:
+	case GLFW_PRESS:
 		actionName = "Pressed";
 		break;
-	case 1:
+	case GLFW_RELEASE:
 		actionName = "Released";
 		break;
-	case 2:
+	case GLFW_REPEAT:
 		actionName = "Repeating";
 		break;
 	default:
