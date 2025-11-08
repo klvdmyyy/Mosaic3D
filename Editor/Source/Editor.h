@@ -1,6 +1,8 @@
 #pragma once
 
 #include "System/Logger.h"
+#include "System/Mesh.h"
+#include "System/Math/Vector.h"
 
 #include "WSI/Window.h"
 
@@ -18,5 +20,4 @@ public:
 private:
 	WSI::Window m_window;
 	GI::IRenderingFactory* m_pRenderingFactory;
-	GI::ISpriteRenderer* m_pSpriteRenderer;
 };

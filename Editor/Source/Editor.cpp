@@ -9,8 +9,6 @@
 Editor::Editor() : m_window({ 800, 600 }, "Mosaic3D")
 {
 	m_pRenderingFactory = GI::IRenderingFactory::Create(GI::Backend::OpenGL);
-
-	m_pSpriteRenderer = m_pRenderingFactory->GetSpriteRenderer();
 }
 
 Editor::~Editor()
@@ -20,6 +18,12 @@ Editor::~Editor()
 
 int Editor::Run()
 {
+	std::vector<System::Vertex> vertices{
+		{{0.5f, -0.5f, 0.0f}},
+		{{0.0f, 0.5f, 0.0f}},
+		{{-0.5f, -0.5f, 0.0f}},
+	};
+	System::Mesh triangle{ vertices, {}, {} };
 	try
 	{
 		while (!m_window.ShouldClose())
