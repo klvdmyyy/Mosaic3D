@@ -20,6 +20,8 @@ namespace System
 
 			inline bool IsOpen() const { return m_fstream.is_open(); }
 
+			std::string GetFilepath() const noexcept { return m_filepath; }
+
 			std::vector<char> ReadBytes();
 		};
 	}

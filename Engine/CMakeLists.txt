@@ -12,7 +12,7 @@ macro(add_engine_module NAME)
 endmacro()
 
 add_engine_module(System)
-target_link_libraries(MosaicSystem PRIVATE glfw)
+target_link_libraries(MosaicSystem PRIVATE glfw assimp)
 
 add_engine_module(WSI)
 target_link_libraries(MosaicWSI PUBLIC MosaicSystem)

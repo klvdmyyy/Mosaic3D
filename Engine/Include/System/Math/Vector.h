@@ -19,6 +19,20 @@ namespace System
 
 		using Vector2u = Vector<unsigned int, 2>;
 		using Vector2i = Vector<int, 2>;
-		using Vector2f = Vector<float, 2> ;
+		using Vector2f = Vector<float, 2>;
+
+		template<class T>
+		class Vector<T, 3>
+		{
+		public:
+			T x, y, z;
+
+			Vector(T value) : x(value), y(value), z(value) {}
+			Vector(T x_, T y_, T z_) : x(x_), y(y_), z(z_) {}
+		};
+
+		using Vector3u = Vector<unsigned int, 3>;
+		using Vector3i = Vector<int, 3>;
+		using Vector3f = Vector<float, 3>;
 	}
 }
