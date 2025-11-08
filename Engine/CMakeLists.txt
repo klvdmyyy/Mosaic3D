@@ -6,7 +6,7 @@ macro(add_engine_module NAME)
 		${CMAKE_CURRENT_SOURCE_DIR}/Include/${NAME}/*.cpp
 		${CMAKE_CURRENT_SOURCE_DIR}/Source/${NAME}/*.cpp)
 
-	target_sources("Mosaic${NAME}" PRIVATE ${MOSAIC_${NAME}_SOURCES})
+	target_sources("Mosaic${NAME}" PRIVATE ${MOSAIC_${NAME}_SOURCES} "Source/GI/GLPipeline.h")
 	target_include_directories("Mosaic${NAME}" PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Source/${NAME})
 	target_include_directories("Mosaic${NAME}" PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
 endmacro()
@@ -20,4 +20,4 @@ target_link_libraries(MosaicWSI PRIVATE glfw)
 
 add_engine_module(GI)
 target_link_libraries(MosaicGI PUBLIC MosaicSystem MosaicWSI)
-target_link_libraries(MosaicGI PRIVATE)
+target_link_libraries(MosaicGI PRIVATE glad)

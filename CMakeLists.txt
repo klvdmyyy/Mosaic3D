@@ -24,6 +24,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED 20)
 
 add_subdirectory(ThirdParty/glfw-3.4)
+add_subdirectory(ThirdParty/glad)
 
 add_subdirectory(Engine)
 add_subdirectory(Editor)
