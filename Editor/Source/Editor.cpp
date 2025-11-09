@@ -18,12 +18,6 @@ Editor::~Editor()
 
 int Editor::Run()
 {
-	std::vector<System::Vertex> vertices{
-		{{0.5f, -0.5f, 0.0f}},
-		{{0.0f, 0.5f, 0.0f}},
-		{{-0.5f, -0.5f, 0.0f}},
-	};
-	System::Mesh triangle{ vertices, {}, {} };
 	try
 	{
 		while (!m_window.ShouldClose())

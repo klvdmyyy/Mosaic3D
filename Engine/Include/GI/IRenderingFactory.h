@@ -10,7 +10,7 @@ namespace GI
 	class IRenderingFactory
 	{
 	public:
-
+		[[nodiscard]]
 		static IRenderingFactory* Create(Backend);
 
 		virtual ~IRenderingFactory() = default;

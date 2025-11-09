@@ -14,6 +14,7 @@ namespace GI
 
 		default:
 			System::Logger::Log(System::LogLevel::Critical, "GI", "Failed to create rendering factory. Unknown or unsupported backend value provided.");
+			return nullptr;
 		}
 	}
 }

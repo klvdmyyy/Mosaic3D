@@ -1,7 +1,6 @@
 #pragma once
 
 #include "System/Logger.h"
-#include "System/Mesh.h"
 #include "System/Math/Vector.h"
 
 #include "WSI/Window.h"
