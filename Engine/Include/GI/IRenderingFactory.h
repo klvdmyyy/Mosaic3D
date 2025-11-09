@@ -6,6 +6,7 @@ namespace GI
 	{
 		OpenGL,
 	};
+
 	class IRenderingFactory
 	{
 	public:

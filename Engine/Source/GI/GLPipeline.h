@@ -4,9 +4,11 @@
 
 #include "GLShader.h"
 
+#include "GI/IPipeline.h"
+
 namespace GI
 {
-	class GLPipeline
+	class GLPipeline : public IPipeline
 	{
 	private:
 		GLShader& m_vertexShader;
